@@ -66,6 +66,7 @@ app.use((req, res) => {
     webpackIsomorphicTools.refresh();
   }
   const client = new ApiClient(req);
+  console.log(req.originalUrl);
   const history = createHistory(req.originalUrl);
 
   const store = createStore(history, client);
@@ -89,6 +90,7 @@ app.use((req, res) => {
       hydrateOnClient();
     } else if (renderProps) {
       loadOnServer({...renderProps, store, helpers: {client}}).then(() => {
+        console.log(renderProps);
         const component = (
           <Provider store={store} key="provider">
             <ReduxAsyncConnect {...renderProps} />
