@@ -6,11 +6,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 import getRoutes from './routes';
 
@@ -18,7 +23,7 @@ const client = new ApiClient();
 const history = useScroll(() => browserHistory)();
 const dest = document.getElementById('content');
 const store = createStore(history, client, window.__data);
-
+/*
 function initSocket() {
   const socket = io('', {path: '/ws'});
   socket.on('news', (data) => {
@@ -30,9 +35,9 @@ function initSocket() {
   });
 
   return socket;
-}
+}*/
 
-global.socket = initSocket();
+//  global.socket = initSocket();
 
 const component = (
   <Router render={(props) =>

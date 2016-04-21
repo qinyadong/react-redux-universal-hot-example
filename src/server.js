@@ -37,13 +37,17 @@ app.use('/api', (req, res) => {
   proxy.web(req, res, {target: targetUrl});
 });
 
+app.use('/rest-auth', (req, res) => {
+  proxy.web(req, res, {target: targetUrl+'/rest-auth'});
+});
+
 app.use('/ws', (req, res) => {
   proxy.web(req, res, {target: targetUrl + '/ws'});
 });
 
-server.on('upgrade', (req, socket, head) => {
+/*server.on('upgrade', (req, socket, head) => {
   proxy.ws(req, socket, head);
-});
+});*/
 
 // added the error handling to avoid https://github.com/nodejitsu/node-http-proxy/issues/527
 proxy.on('error', (error, req, res) => {
@@ -66,7 +70,6 @@ app.use((req, res) => {
     webpackIsomorphicTools.refresh();
   }
   const client = new ApiClient(req);
-  console.log(req.originalUrl);
   const history = createHistory(req.originalUrl);
 
   const store = createStore(history, client);
@@ -90,7 +93,6 @@ app.use((req, res) => {
       hydrateOnClient();
     } else if (renderProps) {
       loadOnServer({...renderProps, store, helpers: {client}}).then(() => {
-        console.log(renderProps);
         const component = (
           <Provider store={store} key="provider">
             <ReduxAsyncConnect {...renderProps} />

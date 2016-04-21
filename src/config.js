@@ -12,13 +12,13 @@ const environment = {
 module.exports = Object.assign({
   host: process.env.HOST || 'localhost',
   port: process.env.PORT,
-  apiHost: process.env.APIHOST || 'localhost',
-  apiPort: process.env.APIPORT,
+  apiHost: process.env.APIHOST || '183.232.221.10',
+  apiPort: process.env.APIPORT || 8009,
   app: {
-    title: 'React Redux Example',
+    title: 'devops',
     description: 'All the modern best practices in one example.',
     head: {
-      titleTemplate: 'React Redux Example: %s',
+      titleTemplate: 'devops: %s',
       meta: [
         {name: 'description', content: 'All the modern best practices in one example.'},
         {charset: 'utf-8'},
@@ -32,6 +32,9 @@ module.exports = Object.assign({
         {property: 'og:creator', content: '@erikras'},
         {property: 'og:image:width', content: '200'},
         {property: 'og:image:height', content: '200'}
+      ],
+      link: [
+        {'rel': 'stylesheet', 'href': 'https://fonts.googleapis.com/css?family=Roboto:400,300,500'},
       ]
     }
   },

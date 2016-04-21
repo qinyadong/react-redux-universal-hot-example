@@ -1,11 +1,11 @@
-const LOAD = 'redux-example/widgets/LOAD';
-const LOAD_SUCCESS = 'redux-example/widgets/LOAD_SUCCESS';
-const LOAD_FAIL = 'redux-example/widgets/LOAD_FAIL';
-const EDIT_START = 'redux-example/widgets/EDIT_START';
-const EDIT_STOP = 'redux-example/widgets/EDIT_STOP';
-const SAVE = 'redux-example/widgets/SAVE';
-const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
-const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
+const LOAD = 'devops/cmdb/LOAD';
+const LOAD_SUCCESS = 'devops/cmdb/LOAD_SUCCESS';
+const LOAD_FAIL = 'devops/cmdb/LOAD_FAIL';
+const EDIT_START = 'devops/cmdb/EDIT_START';
+const EDIT_STOP = 'devops/cmdb/EDIT_STOP';
+const SAVE = 'devops/cmdb/SAVE';
+const SAVE_SUCCESS = 'devops/cmdb/SAVE_SUCCESS';
+const SAVE_FAIL = 'devops/cmdb/SAVE_FAIL';
 
 const initialState = {
   loaded: false,
@@ -25,7 +25,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
-        data: action.result,
+        data: action.results,
         error: null
       };
     case LOAD_FAIL:
@@ -34,7 +34,7 @@ export default function reducer(state = initialState, action = {}) {
         loading: false,
         loaded: false,
         data: null,
-        error: action.error
+        error: action.error.detail
       };
     case EDIT_START:
       return {
@@ -83,7 +83,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 export function isLoaded(globalState) {
-  return globalState.widgets && globalState.widgets.loaded;
+  return globalState.cmdb && globalState.cmdb.loaded;
 }
 
 export function load() {
@@ -93,12 +93,12 @@ export function load() {
   };
 }
 
-export function save(widget) {
+export function save(cmdb) {
   return {
     types: [SAVE, SAVE_SUCCESS, SAVE_FAIL],
-    id: widget.id,
-    promise: (client) => client.post('/widget/update', {
-      data: widget
+    id: cmdb.id,
+    promise: (client) => client.post('/api_assets/update/', {
+      data: cmdb
     })
   };
 }
