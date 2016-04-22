@@ -4,10 +4,10 @@ import { isLoaded as isAuthLoaded, load as loadAuth } from 'redux/modules/auth';
 import {
     App,
     Cmdb,
+    Hosts,
     Chat,
     Home,
     Widgets,
-    About,
     Login,
     LoginSuccess,
     Survey,
@@ -49,7 +49,7 @@ export default (store) => {
 
       { /* Routes */ }
       <Route path="cmdb" component={Cmdb}/>
-      <Route path="hosts" component={About}/>
+      <Route path="hosts" component={Hosts}/>
       <Route path="monitor" component={Survey}/>
       <Route path="gateone" component={Widgets}/>
       <Route path="login" component={Login}/>

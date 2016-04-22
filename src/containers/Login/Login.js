@@ -33,10 +33,10 @@ export default class Login extends Component {
         <div>
           <form className="login-form form-inline" onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <input type="text" ref="username" placeholder="Enter an email" className="form-control"/>
+              <input type="text" ref="username" placeholder="Enter an email" value="guobiao_cn@hotmail.com" className="form-control"/>
             </div>&nbsp;&nbsp;&nbsp;&nbsp;
             <div className="form-group">
-              <input type="password" ref="password" placeholder="" className="form-control"/>
+              <input type="password" ref="password" placeholder="" value="123qwe123qwe" className="form-control"/>
             </div>&nbsp;&nbsp;&nbsp;&nbsp;
             <button className="btn btn-success" onClick={this.handleSubmit}><i className="fa fa-sign-in"/>{' '}Log In
             </button>

@@ -32,9 +32,6 @@ module.exports = Object.assign({
         {property: 'og:creator', content: '@erikras'},
         {property: 'og:image:width', content: '200'},
         {property: 'og:image:height', content: '200'}
-      ],
-      link: [
-        {'rel': 'stylesheet', 'href': 'https://fonts.googleapis.com/css?family=Roboto:400,300,500'},
       ]
     }
   },

@@ -39,6 +39,6 @@ export function isLoaded(globalState) {
 export function load() {
   return {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/rest-auth/user/')
+    promise: (client) => client.get('/rest-auth/user/?token=e259a1d3bdb91d2f81613ce06757782f50374d26')
   };
 }
