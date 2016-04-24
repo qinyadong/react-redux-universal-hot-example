@@ -62,7 +62,7 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
         "PORT": 3300,
-        "APIPORT": 8001
+        "APIPORT": 8009
       }
     },
     "start-dev-api": {

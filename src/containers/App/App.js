@@ -81,7 +81,7 @@ export default class App extends Component {
               </LinkContainer>}
 
               <LinkContainer to="/cmdb">
-                <NavItem eventKey={2}>CMDB</NavItem>
+                <NavItem eventKey={2}>资产</NavItem>
               </LinkContainer>
               <LinkContainer to="/hosts">
                 <NavItem eventKey={3}>主机</NavItem>
@@ -100,12 +100,12 @@ export default class App extends Component {
               {user &&
               <LinkContainer to="/logout">
                 <NavItem eventKey={7} className="logout-link" onClick={this.handleLogout}>
-                  Logout
+                  注销
                 </NavItem>
               </LinkContainer>}
             </Nav>
             {user &&
-            <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
+            <p className={styles.loggedInMessage + ' navbar-text'}>登录人： <strong>{user.name || '郭彪'}</strong>.</p>}
           </Navbar.Collapse>
         </Navbar>
 
